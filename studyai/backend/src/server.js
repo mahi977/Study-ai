@@ -26,7 +26,8 @@ const server = http.createServer(app);
 
 // Socket.io
 const io = new Server(server, {
-  cors: { origin: process.env.CLIENT_URL || 'http://localhost:3000', methods: ['GET', 'POST'] }
+  
+cors: { origin: "https://study-ai-mu-ashy.vercel.app", methods: ['GET', 'POST'] }
 });
 io.on('connection', (socket) => {
   socket.on('join', (userId) => { if (userId) socket.join(userId); });
@@ -39,7 +40,7 @@ app.set('io', io);
 // Security & Middleware
 app.use(helmet({ contentSecurityPolicy: false }));
 app.use(compression());
-app.use(cors({ origin: process.env.CLIENT_URL || 'http://localhost:3000', credentials: true }));
+app.use(cors({ origin: "https://study-ai-mu-ashy.vercel.app", credentials: true }));
 app.use(express.json({ limit: '10kb' }));
 app.use(mongoSanitize());
 app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
