@@ -54,7 +54,7 @@ export default function LoginPage() {
             {mode === 'register' && (
               <div className="animate-slide-up">
                 <label className="label">Full Name</label>
-                <input className="input" placeholder="Arjun Sharma" value={form.name}
+                <input className="input" placeholder="Sonu Kumar" value={form.name}
                   onChange={e => setForm({...form, name: e.target.value})} required />
               </div>
             )}
